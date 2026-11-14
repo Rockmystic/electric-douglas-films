@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Electric Douglas</title>
+  <meta name="description" content="Music videos by The Electric Douglas: Last Night’s Rain and Walking On.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top" data-artist></a>
+    <nav>
+      <a href="#films">Films</a>
+      <a href="#shorts">Shorts</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <video class="hero-bg" autoplay muted loop playsinline preload="auto"></video>
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Music videos</p>
+        <h1 data-artist></h1>
+        <p class="tagline" data-tagline></p>
+        <div class="hero-actions"></div>
+      </div>
+      <a class="scroll-cue" href="#films" aria-label="Scroll to films">↓</a>
+    </section>
+
+    <section id="films" class="films"></section>
+
+    <section id="shorts" class="shorts">
+      <div class="section-head">
+        <h2>Shorts &amp; teasers</h2>
+        <p>Hover to preview. Click to watch with sound.</p>
+      </div>
+      <div class="shorts-row"></div>
+    </section>
+
+    <section id="about" class="about">
+      <h2 data-artist></h2>
+      <div class="bio"></div>
+      <p class="credits" data-credits></p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© <span data-year></span> <span data-artist></span></span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <dialog class="theater" aria-label="Video player">
+    <div class="theater-bar">
+      <div>
+        <strong class="theater-title"></strong>
+        <span class="theater-meta"></span>
+      </div>
+      <button class="theater-close" aria-label="Close player">✕</button>
+    </div>
+    <video class="theater-video" controls playsinline></video>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
