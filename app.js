@@ -13,7 +13,11 @@
   // ---------- static text ----------
   $$("[data-artist]").forEach((n) => (n.textContent = S.artist));
   $$("[data-tagline]").forEach((n) => (n.textContent = S.tagline));
-  $$("[data-credits]").forEach((n) => (n.textContent = S.credits));
+  const names = (list) => list.map((n) => `<span class="cr-name">${esc(n)}</span>`).join('<span class="cr-amp">&amp;</span>');
+  $$("[data-credits]").forEach((n) => {
+    n.innerHTML = S.credits.map((c) => `<div class="cr-row"><span class="cr-role">${esc(c.role)}</span><span class="cr-names">${names(c.names)}</span></div>`).join("");
+  });
+  const filmCredit = S.credits.map((c) => `${esc(c.role)} ${c.names.map(esc).join(" &amp; ")}`).join(" · ");
   $$("[data-year]").forEach((n) => (n.textContent = new Date().getFullYear()));
   $(".bio").innerHTML = S.bio.map((p) => `<p>${esc(p)}</p>`).join("");
 
@@ -44,6 +48,7 @@
           <h2>${esc(f.title)}</h2>
           <p class="logline">${esc(f.logline)}</p>
           ${f.lyric ? `<blockquote>“${esc(f.lyric)}”</blockquote>` : ""}
+          <p class="film-credit">${filmCredit}</p>
           <div class="actions">
             <button class="btn primary" data-play="${f.id}"><span class="tri"></span>Watch the film</button>
           </div>
